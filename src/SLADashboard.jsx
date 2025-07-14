@@ -9,10 +9,11 @@ export default function SLADashboard() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.BACKEND_URL}/api/sla?month=${selectedDate}&sat=${selectedSAT}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/sla?month=${selectedDate}&sat=${selectedSAT}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
       console.log(data)
+      console.log(import.meta.env.VITE_BACKEND_URL)
   }, [selectedDate, selectedSAT]);
 
   return (
@@ -54,7 +55,7 @@ export default function SLADashboard() {
               <th>Disconnect (6 Hrs)</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {data.length > 0 ? (
               data.map((row) => (
                 <tr key={row.project}>
@@ -79,7 +80,7 @@ export default function SLADashboard() {
                 </td>
               </tr>
             )}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
 
