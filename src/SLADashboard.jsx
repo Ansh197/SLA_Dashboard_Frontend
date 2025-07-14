@@ -9,7 +9,7 @@ export default function SLADashboard() {
 
   useEffect(() => {
     axios
-      .get(`http://sla-dashboard-backend.onrender.com/api/sla?month=${selectedDate}&sat=${selectedSAT}`)
+      .get(`${import.meta.env.BACKEND_URL}/api/sla?month=${selectedDate}&sat=${selectedSAT}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
       console.log(data)
