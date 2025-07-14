@@ -55,7 +55,7 @@ export default function SLADashboard() {
               <th>Disconnect (6 Hrs)</th>
             </tr>
           </thead>
-          {/* <tbody>
+          <tbody>
             {data.length > 0 ? (
               data.map((row) => (
                 <tr key={row.project}>
@@ -80,7 +80,7 @@ export default function SLADashboard() {
                 </td>
               </tr>
             )}
-          </tbody> */}
+          </tbody>
         </table>
       </div>
 
