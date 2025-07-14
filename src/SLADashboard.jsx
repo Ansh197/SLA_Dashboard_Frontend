@@ -13,7 +13,6 @@ export default function SLADashboard() {
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
       console.log(data)
-      console.log(import.meta.env.VITE_BACKEND_URL)
   }, [selectedDate, selectedSAT]);
 
   return (
@@ -59,7 +58,7 @@ export default function SLADashboard() {
             {data.length > 0 ? (
               data.map((row) => (
                 <tr key={row.project}>
-                  <td>{row.project}</td>
+                  <td>{row["project"]}</td>
                   <td>{row["Load Survey (8Hrs)"] || '-'}</td>
                   <td>{row["Load Survey (12Hrs)"] || '-'}</td>
                   <td>{row["Load Survey (24Hrs)"] || '-'}</td>
