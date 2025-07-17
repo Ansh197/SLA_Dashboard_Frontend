@@ -19,8 +19,8 @@ body {
 /* Container for the dashboard */
 .dashboard-container {
   max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
+  margin: 20px auto;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@ body {
 /* Header */
 .dashboard-container h2 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   font-size: 24px;
   color: #2d3748;
 }
@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   justify-content: center;
 }
 

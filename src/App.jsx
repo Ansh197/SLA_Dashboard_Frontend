@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import SLADashboard from '../components/SLADashboard'
 import './App.css'
 import ProjectSLA from '../components/ProjectSLA'
@@ -73,11 +70,6 @@ function App() {
 
   return (
     <>
-      {/* <SLADashboard/>
-      <div className="chart-wrapper">
-        <ProjectSLA data={data} />
-      </div> */}
-
       <Routes>
         <Route path="/" element={<SLADashboard/>} />
         <Route path="/charts" element={<ProjectSLA data={data} />} />
