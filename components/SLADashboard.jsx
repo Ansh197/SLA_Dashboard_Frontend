@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css'; // Ensure this is imported
+import '../src/App.css'; // Ensure this is imported
 
 export default function SLADashboard() {
   const [data, setData] = useState([]);

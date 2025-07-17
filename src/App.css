@@ -10,6 +10,12 @@ body {
   justify-content: center;
 }
 
+.chart-wrapper {
+  min-height: 400px;
+  width: 100%;
+  background-color: #f8f8f8; /* Just to visually confirm */
+}
+
 /* Container for the dashboard */
 .dashboard-container {
   max-width: 1000px;
