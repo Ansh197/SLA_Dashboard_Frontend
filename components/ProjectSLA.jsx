@@ -63,7 +63,7 @@ const ProjectSLA = ({ data }) => {
           <YAxis domain={[93.8, 99.9]} />
           <Tooltip />
           {projectName.map((project) => (
-            <Line type={"monotone"} dataKey={project} stroke={getRandomColor()} strokeWidth={3} dot={{ r: 4 }} />
+            <Line dataKey={project} stroke={getRandomColor()} strokeWidth={3} dot={{ r: 4 }} />
           ))}
         </LineChart>
       </ResponsiveContainer>

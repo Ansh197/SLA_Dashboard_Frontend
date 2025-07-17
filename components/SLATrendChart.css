@@ -17,7 +17,8 @@
 
 .sla-chart-container2{
   
-  height: 60rem;
+  width: 60vw;
+  height: auto;
   padding: 1rem;
   margin: 0 auto;
   background-color: #fff;
