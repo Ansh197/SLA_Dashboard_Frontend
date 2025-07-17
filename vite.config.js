@@ -10,7 +10,7 @@ export default defineConfig({
       targets: [
         {
           src: 'public/_redirects',
-          dest: '' // copies to the root of build
+          dest: '.' // copies to the root of build
         }
       ]
     })
