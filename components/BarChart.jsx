@@ -2,34 +2,46 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
 import './SLATrendChart.css'; // Custom CSS for fallback
 import './Barchart.css'
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
 
-const BarChartComp = ({ data }) => {
+const BarChartComp = () => {
 
     
     const [selectedDate, setSelectedDate] = useState('2024-06');
-    const [selectedProfile, setSelectedProfile] = useState('satmeters');
+    const [selectedProfile, setSelectedProfile] = useState('Daily Profile');
+    const [sat, setSat] = useState('satmeters')
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/trend?month=${selectedDate}&sat=${sat}&profile=${selectedProfile}`)
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err));
+      console.log(data)
+    }, [selectedDate, sat, selectedProfile]);
     
-    const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    // const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    function getLatestMonthSLA(data) {
-        if (!data || data.length === 0) return [];
+    // function getLatestMonthSLA(data) {
+    //     if (!data || data.length === 0) return [];
 
-        // Find latest month by comparing month index
-        const latestMonth = data.reduce((latest, curr) => {
-            return monthOrder.indexOf(curr.month) > monthOrder.indexOf(latest) ? curr.month : latest;
-        }, data[0].month);
+    //     // Find latest month by comparing month index
+    //     const latestMonth = data.reduce((latest, curr) => {
+    //         return monthOrder.indexOf(curr.month) > monthOrder.indexOf(latest) ? curr.month : latest;
+    //     }, data[0].month);
 
-        // Filter only latest month entries and return { project, sla } format
-        return data
-            .filter((d) => d.month === latestMonth)
-            .map((d) => ({
-            project: d.project,
-            sla: d.sla
-            }));
-        }
+    //     // Filter only latest month entries and return { project, sla } format
+    //     return data
+    //         .filter((d) => d.month === latestMonth)
+    //         .map((d) => ({
+    //         project: d.project,
+    //         sla: d.sla
+    //         }));
+    //     }
 
-    const chartData = getLatestMonthSLA(data);
+    // const chartData = getLatestMonthSLA(data);
+    // console.log(chartData)
 
   return (
     <div className="sla-chart-container">
@@ -50,22 +62,29 @@ const BarChartComp = ({ data }) => {
           <option value="Reconnect">Reconnect</option>
           <option value="Disconnect">Disconnect</option>
         </select>
+        <select
+          value={sat}
+          onChange={(e) => setSat(e.target.value)}
+        >
+          <option value="satmeters">satmeters</option>
+          <option value="allmeters">allmeters</option>
+        </select>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
-            data={chartData}
+            data={data}
             margin={{ top: 20, right: 30, left: 20, bottom: 60 }} // ⬅️ More bottom margin
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
-            dataKey="project"
+            dataKey="Project"
             angle={-45}
             textAnchor="end"
             interval={0} // ⬅️ Show all labels
             />
             <YAxis domain={[90, 100]} />
             <Tooltip />
-            <Bar barSize={40} dataKey="sla" fill="#1ab394" />
+            <Bar barSize={40} dataKey="SLA" fill="#1ab394" />
         </BarChart>
         </ResponsiveContainer>
     </div>
