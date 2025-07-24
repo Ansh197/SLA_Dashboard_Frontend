@@ -26,7 +26,7 @@ export default function SLADashboard() {
 
   return (
     <div className="dashboard-container">
-      <h2>📊 Project SLA Dashboard</h2>
+      <h2>📊 SLA Dashboard</h2>
 
       {/* Filters */}
       <div className="filter-group">
@@ -62,17 +62,11 @@ export default function SLADashboard() {
               data.map((row) => (
                 <tr key={row.project}>
                   <td>{row["project"]}</td>
-                  <td>{row["Load Survey (8Hrs)"] || '-'}</td>
-                  <td>{row["Load Survey (12Hrs)"] || '-'}</td>
-                  <td>{row["Load Survey (24Hrs)"] || '-'}</td>
-                  <td>{row["Daily Profile"] || '-'}</td>
-                  <td>{row["Billing Profile (72 Hrs)"] || '-'}</td>
-                  <td>{row["Billing Profile (120 Hrs)"] || '-'}</td>
-                  <td>{row["Billing Profile (168 Hrs)"] || '-'}</td>
-                  <td>{row["Reconnect (15 min)"] || '-'}</td>
-                  <td>{row["Reconnect (6 Hrs)"] || '-'}</td>
-                  <td>{row["Disconnect (15 min)"] || '-'}</td>
-                  <td>{row["Disconnect (6 Hrs)"] || '-'}</td>
+                  {profiles.map((value) => (
+                  <td>
+                    {value}
+                  </td>
+                ))}
                 </tr>
               ))
             ) : (

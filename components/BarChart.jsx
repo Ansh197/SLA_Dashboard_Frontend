@@ -30,7 +30,7 @@ const BarChartComp = () => {
 
   return (
     <div className="sla-chart-container">
-        <h2 className="sla-chart-title">Monthly Billing Trend</h2>
+        <h2 className="sla-chart-title">Projectwise Monthly Trend</h2>
         <div className="filter-group">
         <input
           type="month"

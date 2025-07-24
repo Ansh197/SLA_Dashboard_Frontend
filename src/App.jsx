@@ -8,10 +8,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<>
-        <BarChartComp/>
-        <SLADashboard/>
-        </>} />
+        <Route path="/" element={<SLADashboard/>} />
         <Route path="/charts" element={<ProjectSLA/>} />
         <Route path="/barcharts" element={<BarChartComp/>} />
       </Routes>
