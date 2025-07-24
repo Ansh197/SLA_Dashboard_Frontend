@@ -12,36 +12,21 @@ const BarChartComp = () => {
     const [selectedProfile, setSelectedProfile] = useState('Daily Profile');
     const [sat, setSat] = useState('satmeters')
     const [data, setData] = useState([])
+    const [profiles, setProfiles] = useState([])
 
     useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/trend?month=${selectedDate}&sat=${sat}&profile=${selectedProfile}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
-      console.log(data)
     }, [selectedDate, sat, selectedProfile]);
     
-    // const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-    // function getLatestMonthSLA(data) {
-    //     if (!data || data.length === 0) return [];
-
-    //     // Find latest month by comparing month index
-    //     const latestMonth = data.reduce((latest, curr) => {
-    //         return monthOrder.indexOf(curr.month) > monthOrder.indexOf(latest) ? curr.month : latest;
-    //     }, data[0].month);
-
-    //     // Filter only latest month entries and return { project, sla } format
-    //     return data
-    //         .filter((d) => d.month === latestMonth)
-    //         .map((d) => ({
-    //         project: d.project,
-    //         sla: d.sla
-    //         }));
-    //     }
-
-    // const chartData = getLatestMonthSLA(data);
-    // console.log(chartData)
+    useEffect(() =>{
+      axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/profiles`)
+      .then((res) => setProfiles(res.data))
+      .catch((err) => console.error(err));
+    }, [profiles])
 
   return (
     <div className="sla-chart-container">
@@ -56,11 +41,11 @@ const BarChartComp = () => {
           value={selectedProfile}
           onChange={(e) => setSelectedProfile(e.target.value)}
         >
-          <option value="dailyload">Dailyload</option>
-          <option value="billing">Billing</option>
-          <option value="loadsurvey">LoadSurvey</option>
-          <option value="Reconnect">Reconnect</option>
-          <option value="Disconnect">Disconnect</option>
+        {profiles.map((value) => (
+        <option key={value} value={value}>
+          {value}
+        </option>
+      ))}
         </select>
         <select
           value={sat}
