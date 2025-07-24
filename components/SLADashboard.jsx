@@ -6,7 +6,6 @@ export default function SLADashboard() {
   const [data, setData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('2024-06');
   const [selectedSAT, setSelectedSAT] = useState('satmeters');
-  const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
     axios
@@ -15,14 +14,6 @@ export default function SLADashboard() {
       .catch((err) => console.error(err));
       console.log(data)
   }, [selectedDate, selectedSAT]);
-
-  
-    useEffect(() =>{
-      axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/profiles`)
-      .then((res) => setProfiles(res.data))
-      .catch((err) => console.error(err));
-    }, [profiles])
 
   return (
     <div className="dashboard-container">
@@ -50,11 +41,17 @@ export default function SLADashboard() {
           <thead>
             <tr>
               <th>Project</th>
-              {profiles.map((value) => (
-              <th>
-                {value}
-              </th>
-            ))}
+              <th>Load Survey (8Hrs)</th>
+              <th>Load Survey (12Hrs)</th>
+              <th>Load Survey (24Hrs)</th>
+              <th>Daily Profile</th>
+              <th>Billing Profile (72 Hrs)</th>
+              <th>Billing Profile (120 Hrs)</th>
+              <th>Billing Profile (168 Hrs)</th>
+              <th>Reconnect (15 min)</th>
+              <th>Reconnect (6 Hrs)</th>
+              <th>Disconnect (15 min)</th>
+              <th>Disconnect (6 Hrs)</th>
             </tr>
           </thead>
           <tbody>
@@ -62,11 +59,17 @@ export default function SLADashboard() {
               data.map((row) => (
                 <tr key={row.project}>
                   <td>{row["project"]}</td>
-                  {profiles.map((value) => (
-                  <td>
-                    {row[value]||'-'}
-                  </td>
-                ))}
+                  <td>{row["Load Survey (8Hrs)"] || '-'}</td>
+                  <td>{row["Load Survey (12Hrs)"] || '-'}</td>
+                  <td>{row["Load Survey (24Hrs)"] || '-'}</td>
+                  <td>{row["Daily Profile"] || '-'}</td>
+                  <td>{row["Billing Profile (72 Hrs)"] || '-'}</td>
+                  <td>{row["Billing Profile (120 Hrs)"] || '-'}</td>
+                  <td>{row["Billing Profile (168 Hrs)"] || '-'}</td>
+                  <td>{row["Reconnect (15 min)"] || '-'}</td>
+                  <td>{row["Reconnect (6 Hrs)"] || '-'}</td>
+                  <td>{row["Disconnect (15 min)"] || '-'}</td>
+                  <td>{row["Disconnect (6 Hrs)"] || '-'}</td>
                 </tr>
               ))
             ) : (
