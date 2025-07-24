@@ -12,7 +12,7 @@ function App() {
         <SLADashboard/>
         <BarChartComp/>
         </>} />
-        <Route path="/charts" element={<ProjectSLA data={data} />} />
+        <Route path="/charts" element={<ProjectSLA/>} />
         <Route path="/barcharts" element={<BarChartComp/>} />
       </Routes>
     </>
