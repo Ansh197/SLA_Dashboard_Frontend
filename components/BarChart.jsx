@@ -63,18 +63,9 @@ const BarChartComp = () => {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
             dataKey="Project"
-            interval={0} // ⬅️ Show all labels
-            tick={({ x, y, payload }) => (
-            <text
-              x={x}
-              y={y + 10}
-              textAnchor="end"
-              transform={`rotate(-45 ${x},${y})`}
-              fontSize="12"
-            >
-              {payload.value}
-            </text>
-          )}
+            angle={-45}
+            textAnchor="end"
+            interval={0}
             />
             <YAxis domain={[90, 100]} />
             <Tooltip />

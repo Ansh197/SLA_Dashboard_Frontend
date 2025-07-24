@@ -64,7 +64,7 @@ export default function SLADashboard() {
                   <td>{row["project"]}</td>
                   {profiles.map((value) => (
                   <td>
-                    {value}
+                    {row[value]||'-'}
                   </td>
                 ))}
                 </tr>
