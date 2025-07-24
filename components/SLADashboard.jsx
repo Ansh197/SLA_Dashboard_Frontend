@@ -6,6 +6,7 @@ export default function SLADashboard() {
   const [data, setData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('2024-06');
   const [selectedSAT, setSelectedSAT] = useState('satmeters');
+  const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
     axios
@@ -14,6 +15,14 @@ export default function SLADashboard() {
       .catch((err) => console.error(err));
       console.log(data)
   }, [selectedDate, selectedSAT]);
+
+  
+    useEffect(() =>{
+      axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/profiles`)
+      .then((res) => setProfiles(res.data))
+      .catch((err) => console.error(err));
+    }, [profiles])
 
   return (
     <div className="dashboard-container">
@@ -41,17 +50,11 @@ export default function SLADashboard() {
           <thead>
             <tr>
               <th>Project</th>
-              <th>Load Survey (8Hrs)</th>
-              <th>Load Survey (12Hrs)</th>
-              <th>Load Survey (24Hrs)</th>
-              <th>Daily Profile</th>
-              <th>Billing Profile (72 Hrs)</th>
-              <th>Billing Profile (120 Hrs)</th>
-              <th>Billing Profile (168 Hrs)</th>
-              <th>Reconnect (15 min)</th>
-              <th>Reconnect (6 Hrs)</th>
-              <th>Disconnect (15 min)</th>
-              <th>Disconnect (6 Hrs)</th>
+              {profiles.map((value) => (
+              <th>
+                {value}
+              </th>
+            ))}
             </tr>
           </thead>
           <tbody>
