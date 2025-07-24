@@ -9,8 +9,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<>
-        <SLADashboard/>
         <BarChartComp/>
+        <SLADashboard/>
         </>} />
         <Route path="/charts" element={<ProjectSLA/>} />
         <Route path="/barcharts" element={<BarChartComp/>} />

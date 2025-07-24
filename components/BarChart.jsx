@@ -51,8 +51,8 @@ const BarChartComp = () => {
           value={sat}
           onChange={(e) => setSat(e.target.value)}
         >
-          <option value="satmeters">satmeters</option>
-          <option value="allmeters">allmeters</option>
+          <option value="satmeters">Sat Meters</option>
+          <option value="allmeters">All Meters</option>
         </select>
       </div>
       <ResponsiveContainer width="100%" height={400}>
@@ -63,9 +63,18 @@ const BarChartComp = () => {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
             dataKey="Project"
-            angle={-45}
-            textAnchor="end"
             interval={0} // ⬅️ Show all labels
+            tick={({ x, y, payload }) => (
+            <text
+              x={x}
+              y={y + 10}
+              textAnchor="end"
+              transform={`rotate(-45 ${x},${y})`}
+              fontSize="12"
+            >
+              {payload.value}
+            </text>
+          )}
             />
             <YAxis domain={[90, 100]} />
             <Tooltip />
