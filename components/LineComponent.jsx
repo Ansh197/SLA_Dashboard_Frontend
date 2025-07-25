@@ -17,10 +17,13 @@ export default function LineComponent() {
       .catch((err) => console.error(err));
     }, []);
 
+    const loadSurvey8Data = projectData?.["Load Survey (8Hrs)"]?.filter(item => item.sat === "satmeters");
+
   return ( 
     <div className='line-dashboard-container'>
     <div className='linecomponent'>
         <div className='lineheading'>Load Survey (8Hrs)</div>
+        {loadSurvey8Data?.length > 0 ? (
       <ResponsiveContainer width="100%" height={350}>
         <LineChart
           data={projectData["Load Survey (8Hrs)"]}
@@ -46,6 +49,9 @@ export default function LineComponent() {
           />
         </LineChart>
       </ResponsiveContainer>
+         ) : (
+          <p>Loading or no data available</p>
+        )}
     </div>
     {/* <div className='linecomponent'>
         <div className='lineheading'>Blockload Profile</div>
