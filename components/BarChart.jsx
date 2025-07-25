@@ -26,7 +26,7 @@ const BarChartComp = () => {
       .get(`${import.meta.env.VITE_BACKEND_URL}/profiles`)
       .then((res) => setProfiles(res.data))
       .catch((err) => console.error(err));
-    }, [profiles])
+    }, [])
 
   return (
     <div className="sla-chart-container">
