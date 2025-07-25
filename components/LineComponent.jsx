@@ -17,6 +17,8 @@ export default function LineComponent() {
       .catch((err) => console.error(err));
     }, []);
 
+    console.log(projectData)
+
     const loadSurvey8Data = projectData?.["Load Survey (8Hrs)"]?.filter(item => item.sat === "satmeters");
 
   return ( 
