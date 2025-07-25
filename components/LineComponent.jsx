@@ -60,10 +60,10 @@ export default function LineComponent() {
     <div className='line-dashboard-container'>
     <div className='linecomponent'>
         <div className='lineheading'>Load Survey (8Hrs)</div>
-        {loadSurvey8Data?.length > 0 ? (
+        {chartData?.length > 0 ? (
       <ResponsiveContainer width="100%" height={350}>
         <LineChart
-          data={satData["Load Survey (8Hrs)"]}
+          data={chartData}
           margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
