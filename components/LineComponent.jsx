@@ -8,6 +8,8 @@ export default function LineComponent() {
 
     const { encodedProjectName } = useParams();
     const projectName = decodeURIComponent(encodedProjectName);
+    console.log(encodedProjectName)
+    console.log(projectName)
     const [projectData,setProjectData] = useState()
 
     useEffect(() => {
