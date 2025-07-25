@@ -8,7 +8,7 @@ export default function LineComponent() {
 
     const { encodedProjectName } = useParams();
     const projectName = decodeURIComponent(encodedProjectName);
-    const [projectData,setProjectData] = useState([])
+    const [projectData,setProjectData] = useState()
 
     useEffect(() => {
     axios
