@@ -58,7 +58,7 @@ const BarChartComp = () => {
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
             data={data}
-            margin={{ top: 20, right: 30, left: 20, bottom: 60 }} // ⬅️ More bottom margin
+            margin={{ top: 20, right: 30, left: 20, bottom: 60 }} 
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis

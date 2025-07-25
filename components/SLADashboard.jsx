@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../src/App.css'; // Ensure this is imported
+import '../src/App.css'; 
 import { Link } from 'react-router-dom';
 
 
@@ -8,52 +8,6 @@ export default function SLADashboard() {
   const [data, setData] = useState([]);
   const [selectedDate, setSelectedDate] = useState('2024-06');
   const [selectedSAT, setSelectedSAT] = useState('satmeters');
-//   const data = [
-//   {
-//     "project": "Project A",
-//     "Load Survey (8Hrs)": 92,
-//     "Load Survey (12Hrs)": 88,
-//     "Load Survey (24Hrs)": 85,
-//     "Daily Profile": 95,
-//     "Billing Profile (72 Hrs)": 90,
-//     "Billing Profile (120 Hrs)": 87,
-//     "Billing Profile (168 Hrs)": 93,
-//     "Reconnect (15 min)": 91,
-//     "Reconnect (6 Hrs)": 89,
-//     "Disconnect (15 min)": 90,
-//     "Disconnect (6 Hrs)": 88
-//   },
-//   {
-//     "project": "Project B",
-//     "Load Survey (8Hrs)": 89,
-//     "Load Survey (12Hrs)": 85,
-//     "Load Survey (24Hrs)": 80,
-//     "Daily Profile": 92,
-//     "Billing Profile (72 Hrs)": 88,
-//     "Billing Profile (120 Hrs)": 85,
-//     "Billing Profile (168 Hrs)": 90,
-//     "Reconnect (15 min)": 87,
-//     "Reconnect (6 Hrs)": 86,
-//     "Disconnect (15 min)": 88,
-//     "Disconnect (6 Hrs)": 84
-//   },
-//   {
-//     "project": "Project C",
-//     "Load Survey (8Hrs)": 95,
-//     "Load Survey (12Hrs)": 92,
-//     "Load Survey (24Hrs)": 90,
-//     "Daily Profile": 97,
-//     "Billing Profile (72 Hrs)": 94,
-//     "Billing Profile (120 Hrs)": 91,
-//     "Billing Profile (168 Hrs)": 96,
-//     "Reconnect (15 min)": 93,
-//     "Reconnect (6 Hrs)": 90,
-//     "Disconnect (15 min)": 92,
-//     "Disconnect (6 Hrs)": 89
-//   }
-// ];
-
-
 
   useEffect(() => {
     axios
@@ -67,7 +21,6 @@ export default function SLADashboard() {
     <div className="dashboard-container">
       <h2>📊 SLA Dashboard</h2>
 
-      {/* Filters */}
       <div className="filter-group">
         <input
           type="month"
@@ -83,7 +36,6 @@ export default function SLADashboard() {
         </select>
       </div>
 
-      {/* Table */}
       <div className="table-container">
         <table className="sla-table">
           <thead>

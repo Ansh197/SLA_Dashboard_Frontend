@@ -2,27 +2,13 @@ import React, { useEffect, useState } from 'react'
 import {XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 import './LineComponent.css'
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
 
 export default function LineComponent() {
 
     const { encodedProjectName } = useParams();
     const projectName = decodeURIComponent(encodedProjectName);
     const [projectData,setProjectData] = useState([])
-
-  const dummyData = [
-  { "month": "Jan", "SLA": 80 },
-  { "month": "Feb", "SLA": 90 },
-  { "month": "Mar", "SLA": 85 },
-  { "month": "Apr", "SLA": 88 },
-  { "month": "May", "SLA": 92 },
-  { "month": "Jun", "SLA": 86 },
-  { "month": "Jul", "SLA": 89 },
-  { "month": "Aug", "SLA": 91 },
-  { "month": "Sep", "SLA": 87 },
-  { "month": "Oct", "SLA": 93 },
-  { "month": "Nov", "SLA": 90 },
-  { "month": "Dec", "SLA": 95 }
-]
 
     useEffect(() => {
     axios
@@ -31,21 +17,18 @@ export default function LineComponent() {
       .catch((err) => console.error(err));
     }, []);
 
-    console.log(projectName)
-
-
   return ( 
     <div className='line-dashboard-container'>
     <div className='linecomponent'>
-        <div className='lineheading'>DailyLoad Profile</div>
+        <div className='lineheading'>Load Survey (8Hrs)</div>
       <ResponsiveContainer width="100%" height={350}>
         <LineChart
-          data={dummyData}
+          data={projectData["Load Survey (8Hrs)"]}
           margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
-            dataKey="month"
+            dataKey="yearmonth"
             angle={-45}
             textAnchor="end"
             interval={0}
@@ -55,7 +38,7 @@ export default function LineComponent() {
           <Tooltip />
           <Line
             type="monotone"
-            dataKey="SLA"
+            dataKey="sla_percentage"
             stroke="#1ab394"
             strokeWidth={3}
             dot={{ r: 4 }}
@@ -64,7 +47,7 @@ export default function LineComponent() {
         </LineChart>
       </ResponsiveContainer>
     </div>
-    <div className='linecomponent'>
+    {/* <div className='linecomponent'>
         <div className='lineheading'>Blockload Profile</div>
       <ResponsiveContainer width="100%" height={350}>
         <LineChart
@@ -147,7 +130,7 @@ export default function LineComponent() {
           />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </div> */}
     </div>
   )
 }
