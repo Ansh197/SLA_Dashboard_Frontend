@@ -1,5 +1,4 @@
-.linecomponent{
-    /* width: 30vw; */
+/* .linecomponent{
     border: 1px solid black;
     display: flex ;
     flex-direction:  column;
@@ -20,4 +19,46 @@
     font-size: 20px;
     padding: 1rem;
     margin-top: 0.5rem;
+} */
+
+.line-dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.linecomponent {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+}
+
+.lineheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.linecomponent p {
+    margin-top: 2rem;
+    color: #777;
+    font-style: italic;
+}
+
+/* Optional: To prevent overflow on smaller screens */
+.ResponsiveContainer {
+    width: 100% !important;
+    height: 300px !important;
 }
