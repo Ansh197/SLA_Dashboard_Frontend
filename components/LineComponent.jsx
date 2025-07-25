@@ -33,38 +33,40 @@ export default function LineComponent() {
 
   return ( 
     <div className='line-dashboard-container'>
-    <div className='linecomponent'>
-        <div className='lineheading'>Load Survey (8Hrs)</div>
-        {satData["Load Survey (8Hrs)"]?.length > 0 ? (
-      <ResponsiveContainer width="100%" height={350}>
-        <LineChart
-          data={satData["Load Survey (8Hrs)"]}
-          margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
-            dataKey="yearmonth"
-            angle={-45}
-            textAnchor="end"
-            interval={0}
-            tick={{ fontSize: 12 }}
-          />
-          <YAxis domain={[50, 100]} />
-          <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="sla_percentage"
-            stroke="#1ab394"
-            strokeWidth={3}
-            dot={{ r: 4 }}
-            activeDot={{ r: 6 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-         ) : (
-          <p>Loading or no data available</p>
+    {Object.keys(satData).map((profileName) => (
+    <div className="linecomponent" key={profileName}>
+        <div className="lineheading">{profileName}</div>
+        {satData[profileName]?.length > 0 ? (
+        <ResponsiveContainer width="100%" height={350}>
+            <LineChart
+            data={satData[profileName]}
+            margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+            >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+                dataKey="yearmonth"
+                angle={-45}
+                textAnchor="end"
+                interval={0}
+                tick={{ fontSize: 12 }}
+            />
+            <YAxis domain={[50, 100]} />
+            <Tooltip />
+            <Line
+                type="monotone"
+                dataKey="sla_percentage"
+                stroke="#1ab394"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+                activeDot={{ r: 6 }}
+            />
+            </LineChart>
+        </ResponsiveContainer>
+        ) : (
+        <p>Loading or no data available</p>
         )}
     </div>
+    ))}
     {/* <div className='linecomponent'>
         <div className='lineheading'>Blockload Profile</div>
       <ResponsiveContainer width="100%" height={350}>
