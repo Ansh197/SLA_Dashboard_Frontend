@@ -1,5 +1,5 @@
 // src/components/SLATrendChart.jsx
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
+import {XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
 import './SLATrendChart.css'; // Custom CSS for fallback
 import './Barchart.css'
 import { useState,useEffect } from "react";

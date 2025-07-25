@@ -1,16 +1,18 @@
 import SLADashboard from '../components/SLADashboard'
 import './App.css'
 import ProjectSLA from '../components/ProjectSLA'
-import { Routes, Route, Link, HashRouter } from 'react-router-dom'
+import { Routes, Route, Link} from 'react-router-dom'
 import BarChartComp from '../components/BarChart'
+import LineComponent from '../components/LineComponent'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<SLADashboard/>} />
-        <Route path="/charts" element={<ProjectSLA/>} />
+        <Route path="/linecharts" element={<LineComponent/>} />
         <Route path="/barcharts" element={<BarChartComp/>} />
+        <Route path="/project/:projectName" element={<LineComponent/>} />
       </Routes>
     </>
   )
