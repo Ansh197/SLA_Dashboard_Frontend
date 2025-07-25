@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<SLADashboard/>} />
         <Route path="/linecharts" element={<LineComponent/>} />
         <Route path="/barcharts" element={<BarChartComp/>} />
-        <Route path="/project/:projectName" element={<LineComponent/>} />
+        <Route path="/project/:encodedProjectName" element={<LineComponent/>} />
       </Routes>
     </>
   )
