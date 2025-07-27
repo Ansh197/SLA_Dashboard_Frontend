@@ -8,7 +8,7 @@ import axios from "axios";
 const BarChartComp = () => {
 
     
-    const [selectedDate, setSelectedDate] = useState('2025-06');
+    const [selectedDate, setSelectedDate] = useState('2025dat-06');
     const [selectedProfile, setSelectedProfile] = useState('Daily Profile');
     const [sat, setSat] = useState('satmeters')
     const [data, setData] = useState([])

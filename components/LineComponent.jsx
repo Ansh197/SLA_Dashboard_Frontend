@@ -12,8 +12,9 @@ export default function LineComponent() {
     const [nonSatData, setNonSatData] = useState({});
 
     useEffect(() => {
+      const encodedProjectName = encodeURIComponent(projectName);
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/projectdetails?projectName=${projectName}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/projectdetails?projectName=${encodedProjectName}`)
       .then((res) => {
       const fullData = res.data;
       const sat = {};
