@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function SLADashboard() {
   const [data, setData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('2024-06');
+  const [selectedDate, setSelectedDate] = useState('2025-06');
   const [selectedSAT, setSelectedSAT] = useState('satmeters');
 
   useEffect(() => {
