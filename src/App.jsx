@@ -4,10 +4,12 @@ import ProjectSLA from '../components/ProjectSLA'
 import { Routes, Route, Link} from 'react-router-dom'
 import BarChartComp from '../components/BarChart'
 import LineComponent from '../components/LineComponent'
+import Navbar from '../components/Navbar'
 
 function App() {
   return (
     <>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<SLADashboard/>} />
         <Route path="/linecharts" element={<LineComponent/>} />
