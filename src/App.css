@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+.main-content {
+  padding: 7rem; /* Push content below the navbar */
+}
+
 .chart-wrapper {
   min-height: 400px;
   width: 100%;
